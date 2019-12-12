@@ -31,7 +31,7 @@ class Dog
       INSERT INTO dogs(name,breed) VALUES(?,?)
     SQL
     DB[:conn].execute(sql,self.name,self.breed)
-    @id = DB[:conn].execute("SELECT * FROM dogs").last.first
+    self.id = DB[:conn].execute("SELECT * FROM dogs").last.first
     self
   end
   
