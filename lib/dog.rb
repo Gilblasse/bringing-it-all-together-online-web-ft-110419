@@ -80,7 +80,7 @@ class Dog
     sql =  <<-SQL
       UPDATE dogs SET id = ?,name = ?, breed = ?
     SQL
-    dogs_arr = DB[:conn].execute(sql,name)
+    dogs_arr = DB[:conn].execute(sql,self.name)
   end
   
   
