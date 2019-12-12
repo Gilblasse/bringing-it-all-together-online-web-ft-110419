@@ -50,7 +50,6 @@ class Dog
      sql =  <<-SQL
       SELECT * FROM dogs WHERE id = ?
     SQL
-    dog_arr = DB[:conn].execute(sql,_id)
-    dog_arr.first
+    DB[:conn].execute(sql,_id).map{|row| self.new_from_db(row)}
   end
 end
