@@ -58,7 +58,15 @@ class Dog
     sql =  <<-SQL
       SELECT * FROM dogs WHERE name = ? AND breed = ?
     SQL
-    dogs_arr = DB[:conn].execute(sql,self.name,self.breed)
+    dogs_arr = DB[:conn].execute(sql,name,breed)
+    
     if dogs_arr.empty?
+      self.create({name: name, breed: breed})
+    else
+      dogs = dogs_arr.map{|row| self.new_from_db(row) }
+      dogs.first
+    end
   end
+  
+  
 end
