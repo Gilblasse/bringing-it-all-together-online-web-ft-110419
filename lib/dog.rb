@@ -50,6 +50,7 @@ class Dog
      sql =  <<-SQL
       SELECT * FROM dogs WHERE id = ?
     SQL
-    DB[:conn].execute(sql,_id)
+    dog_arr = DB[:conn].execute(sql,_id)
+    dog_arr.first
   end
 end
