@@ -59,7 +59,6 @@ class Dog
       SELECT * FROM dogs WHERE name = ? AND breed = ?
     SQL
     dogs_arr = DB[:conn].execute(sql,self.name,self.breed)
-    
-     dogs_arr.empty?
+    if dogs_arr.empty?
   end
 end
