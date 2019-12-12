@@ -53,4 +53,6 @@ class Dog
     dog_arr = DB[:conn].execute(sql,_id).map{|row| self.new_from_db(row)}
     dog_arr.first
   end
+  
+  def 
 end
