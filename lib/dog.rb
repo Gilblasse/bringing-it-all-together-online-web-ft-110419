@@ -73,7 +73,7 @@ class Dog
       SELECT * FROM dogs WHERE name = ?
     SQL
     dogs_arr = DB[:conn].execute(sql,name).map {|row| self.new_from_db(row) }
-    
+    dogs_arr.first
   end
   
   
