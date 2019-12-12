@@ -68,5 +68,7 @@ class Dog
     end
   end
   
+  def self
+  
   
 end
