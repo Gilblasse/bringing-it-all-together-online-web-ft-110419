@@ -46,10 +46,10 @@ class Dog
     dog
   end
   
-  def self.find_by_id
+  def self.find_by_id(id)
      sql =  <<-SQL
-      INSERT INTO dogs(name,breed) VALUES(?,?)
+      SELECT * FROM dogs WHERE id = ?
     SQL
-    DB[:conn].execute(sql,self.name,self.breed)
+    DB[:conn].execute(sql,id)
   end
 end
